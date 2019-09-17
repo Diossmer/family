@@ -16,8 +16,8 @@ class UserController extends Controller
     public function index()
     {
         //
-        $datos = User::paginate(3);
-        return view("Admin.home", compact('datos'));
+        $datos = User::paginate(5);
+        return view("admin.home", compact('datos'));
     }
 
     /**
@@ -28,7 +28,7 @@ class UserController extends Controller
     public function create(request $request)
     {
         //
-        return view('Admin.create');
+        return view('admin.create');
     }
 
     /**
@@ -58,7 +58,7 @@ class UserController extends Controller
     {
         //
         $ver = User::find($id);
-        return view('Admin.show', compact('ver'));
+        return view('admin.show', compact('ver'));
     }
 
     /**
@@ -71,7 +71,7 @@ class UserController extends Controller
     {
         //
         $edit = User::find($id);
-        return view('Admin.edit', compact('edit'));
+        return view('admin.edit', compact('edit'));
     }
 
     /**
