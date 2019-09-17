@@ -42,6 +42,7 @@
 </table>
 <td>{!!Form::button(link_to_route('todowebsie.index.create','Add User'))!!}</td>
 {{$datos->links()}}
+composer require laravelcollective/html "5.8.*" -> "laravelcollective"
 </div>
 </div>
 </div>
