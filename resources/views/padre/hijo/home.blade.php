@@ -28,9 +28,9 @@
    @foreach ($hijos as $hijo)
         <tbody>
             <tr>
-                <td>{!!link_to_route('todowebsie.hijo.show',$hijo->id,$hijo->name)!!}</td>
+                <td>{!!link_to_route('todowebsie.hijo.show',$hijo->name,$hijo->id)!!}</td>
                 <td>{{$hijo->apellido}}</td>
-                <td>{{$hijo->user_id}}</td>
+                <td>{{$hijo->User->name}}</td>
                 <td>
                     {!!Form::button(link_to_route('todowebsie.hijo.edit','editar',$hijo->id))!!}
                     &#5210;

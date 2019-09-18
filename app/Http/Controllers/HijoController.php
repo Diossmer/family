@@ -17,6 +17,7 @@ class HijoController extends Controller
     {
         //
         $hijos = Hijo::paginate(5);
+        //echo $hijos->user->name;
         return view('padre.hijo.home', compact('hijos'));
     }
 

@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
 
 class Hijo extends Model
 {
@@ -14,7 +13,6 @@ class Hijo extends Model
     ];
     public function user()
     {
-        return $this->hasMany('App\Comment');
-        //return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 }
