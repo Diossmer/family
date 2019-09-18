@@ -16,15 +16,14 @@
 <div class="card">
 <div class="card-header">{{"Integrant"}}</div>
 <div class="card-body">
-{!!Form::open(['url' => 'hijo/', 'method' => 'Post'])!!}
+{!!Form::open(['url' => 'hijo', 'method' => 'Post'])!!}
 {{csrf_field()}}
 {{Form::label('nombre', 'Nombre:')}}
-{!!Form::text('user',null,['placeholder' => 'User'])!!}<br>
-{{Form::label('correo', 'Correo:')}}
-{!!Form::email('email',null,['placeholder' => 'Email'])!!}<br>
-{{Form::label('contraseña', 'Contraseña:')}}
-{!!Form::password('password')!!}<br>
-{{--Form::checkbox('name', 'valor', true)--}}
+{!!Form::text('user',null,['placeholder' => 'Nombre'])!!}<br>
+{{Form::label('apellido', 'Apellido:')}}
+{!!Form::text('apellido',null,['placeholder' => 'Apellido'])!!}<br>
+{{Form::label('padre', 'Padre:')}}
+{!!Form::select('user_id',[null], ['placeholder' => 'Select option']);!!}<br>
 {!!Form::submit('Enviar')!!}
 {!!Form::reset('Borrar')!!}
 {!!Form::button(link_to_route('todowebsie.hijo.index','Regresar'))!!}

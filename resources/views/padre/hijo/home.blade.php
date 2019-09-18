@@ -21,7 +21,7 @@
         <tr>
             <th>Name</th>
             <th>Apellido</th>
-            <th>hijo</th>
+            <th>Padre</th>
             <th>Action</th>
         </tr>
     </thead>

@@ -19,11 +19,11 @@
 {!!Form::open(['url' => 'hijo/'.$edit->id, 'method' => 'put'])!!}
 {{csrf_field()}}
 {{Form::label('nombre', 'Nombre:')}}
-{!!Form::text('user',$edit->name,['placeholder' => 'User'])!!}<br>
-{{Form::label('correo', 'Correo:')}}
-{!!Form::email('email',$edit->email,['placeholder' => 'Email'])!!}<br>
-{{Form::label('contraseña', 'Contraseña:')}}
-{!!Form::password('password')!!}<br>
+{!!Form::text('user',$edit->name,['placeholder' => 'Nombre'])!!}<br>
+{{Form::label('apellidos', 'Apellido:')}}
+{!!Form::text('apellido',$edit->apellido,['placeholder' => 'Apellido'])!!}<br>
+{{Form::label('padre', 'Padre:')}}
+{!!Form::select('user_id',[$padres,$edit->user_id], ['placeholder' => 'Select option']);!!}<br>
 {{--Form::checkbox('name', 'valor', true)--}}
 {!!Form::submit('Enviar')!!}
 {!!Form::reset('Borrar')!!}

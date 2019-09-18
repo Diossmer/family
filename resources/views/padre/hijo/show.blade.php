@@ -17,13 +17,28 @@
 <div class="card-header">{{"Integrant"}}</div>
 <div class="card-body">
 <h1>Usuario: {{$ver->name}}</h1>
-<p><b>{{$ver->name}}</b> Usted tiene una gran virtud por delante</p>
+<p><b>{{$ver->user->name}}</b> Usted tiene una gran virtud por delante</p>
 <hr>
-<p>Se enviara a su Correo: <b>{{$ver->email}}</b> un archivo de paz</p>
+<p>Se enviara a su Correo: <b>{{$ver->apellido}}</b> un archivo de paz</p>
 <p>sin mas nada que decir nos encontremos en su proxima actualizacion de <b>{{env('APP_NAME', 'Laravel')}}</b></p>
-<p>Su contraseña esta encriptado: <b>{{$ver->password}}</b></p>
-<p>Su creacion de archivo es: <b>{{$ver->created_at}}</b></p>
-<p>Su ultima actualizacion es: <b>{{$ver->updated_at}}</b></p>
+<p>Su contraseña esta encriptado: <b>{{$ver->user->password}}</b></p>
+<table border="1" style="background-color:#ff7000">
+<tr>
+    <th><p>Hijo:</p></th>
+</tr>
+<tr>
+    <td><p>Su creacion de archivo es: <b>{{$ver->created_at}}</b></p></td>
+    <td><p>Su ultima actualizacion es: <b>{{$ver->updated_at}}</b></p></td>
+</tr>
+<tr>
+        <th><p>padre:</p></th>
+    </tr>
+    <tr>
+        <td><p>Su creacion de archivo es: <b>{{$ver->user->created_at}}</b></p></td>
+        <td><p>Su ultima actualizacion es: <b>{{$ver->user->updated_at}}</b></p></td>
+    </tr>
+
+</table>
 <hr>
 {!!Form::button(link_to('hijo','Regresar'))!!}
 </div>

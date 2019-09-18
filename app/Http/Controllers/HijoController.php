@@ -26,9 +26,10 @@ class HijoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(request $request)
     {
         //
+        return view('padre.hijo.create');
     }
 
     /**
@@ -40,6 +41,12 @@ class HijoController extends Controller
     public function store(Request $request)
     {
         //
+        $nuevo = Hijo::all();
+        $nuevo->name = $request->user;
+        $nuevo->apellido = $request->apellido;
+        $nuevo->user_id = $request->user_id;
+        $nuevo->save();
+        return redirect("hijo");
     }
 
     /**
@@ -48,9 +55,11 @@ class HijoController extends Controller
      * @param  \App\Hijo  $hijo
      * @return \Illuminate\Http\Response
      */
-    public function show(Hijo $hijo)
+    public function show($id)
     {
         //
+        $ver = Hijo::findOrFail($id);
+        return view('padre.hijo.show', compact('ver'));
     }
 
     /**
@@ -59,9 +68,12 @@ class HijoController extends Controller
      * @param  \App\Hijo  $hijo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hijo $hijo)
+    public function edit($id)
     {
         //
+        $edit = Hijo::find($id);
+        $padres = User::pluck('name', 'id');
+        return view('padre.hijo.edit', compact('edit', 'padres'));
     }
 
     /**
@@ -71,9 +83,15 @@ class HijoController extends Controller
      * @param  \App\Hijo  $hijo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hijo $hijo)
+    public function update(Request $request, $id)
     {
         //
+        $nuevo = Hijo::find($id);
+        $nuevo->name = $request->user;
+        $nuevo->apellido = $request->apellido;
+        $nuevo->user_id = $request->user_id;
+        $nuevo->save();
+        return redirect("/hijo");
     }
 
     /**
@@ -82,8 +100,10 @@ class HijoController extends Controller
      * @param  \App\Hijo  $hijo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hijo $hijo)
+    public function destroy($id)
     {
         //
+        Hijo::destroy($id);
+        return redirect('/hijo');
     }
 }
