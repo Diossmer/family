@@ -25,26 +25,26 @@
             <th>Action</th>
         </tr>
     </thead>
-   {{--  @foreach ($hijos as $hijo)
+   @foreach ($hijos as $hijo)
         <tbody>
             <tr>
                 {{$hijo->id}}
-                <td>{!!link_to('index/'.$hijo->id,$hijo->name)!!}</td>
+                <td>{!!link_to_route('todowebsie.padre.show'.$hijo->id,$hijo->name)!!}</td>
                 <td>{{$hijo->apellido}}</td>
                 <td>{{$hijo->user_id}}</td>
                 <td>
                     {!!Form::button(link_to_route('todowebsite.padre.edit','editar',$hijo->id))!!}
                     &#5210;
-                    {!!Form::open(['url' => 'index/'.$hijo->id, 'method' => 'DELETE'])!!}
+                    {!!Form::open(['url' => 'padre/'.$hijo->id, 'method' => 'DELETE'])!!}
                     {!!Form::submit('Eliminar')!!}
                     {{Form::close()}}
                 </td>    
             </tr>            
         </tbody>
-    @endforeach--}}
+    @endforeach
 </table>
-{{-- <td>{!!Form::button(link_to_route('todowebsite.padre.create','Add User'))!!}</td> --}}
-{{-- {{$hijos->links()}} --}}
+<td>{!!Form::button(link_to_route('todowebsite.padre.create','Add User'))!!}</td>
+{{$hijos->links()}}
 composer require laravelcollective/html "5.8.*" -> "laravelcollective"
 </div>
 </div>

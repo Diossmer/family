@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Padre;
 use Illuminate\Http\Request;
+use App\Padre;
 use App\User;
+use App\Madre;
 
 class PadreController extends Controller
 {
@@ -16,8 +17,8 @@ class PadreController extends Controller
     public function index()
     {
         //
-        //$hijos = User::find(1)->padres;
-        return view('admin.padres.home');
+        $hijos = Padre::find(1)->user;
+        return view('admin.padres.home', compact('hijos'));
     }
 
     /**
