@@ -13,6 +13,6 @@
 
 Route::name('todowebsie.')->group(function () {
     Route::view('/', 'welcome')->name('home');
-    Route::resource('index', 'Admin\UserController')->parameters(['index' => 'id']);
-    Route::resource('padre', 'PadreController')->parameters(['padre' => 'id']);
+    Route::resource('padre', 'UserController')->parameters(['padre' => 'id']);
+    Route::resource('hijo', 'HijoController')->parameters(['hijo' => 'id']);
 });

@@ -5,8 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Padre;
-use App\Madre;
+use App\Hijo;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -37,12 +37,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function padre()
+    public function hijo()
     {
-        return $this->hasOne('App\Padre');
-    }
-    public function madre()
-    {
-        return $this->hasOne('App\Madre');
+        return $this->hasOne('App\Hijo');
     }
 }

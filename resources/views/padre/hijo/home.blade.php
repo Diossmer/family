@@ -20,28 +20,30 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Email</th>
+            <th>Apellido</th>
+            <th>hijo</th>
             <th>Action</th>
         </tr>
     </thead>
-    @foreach ($datos as $dato)
+   @foreach ($hijos as $hijo)
         <tbody>
             <tr>
-                <td>{!!link_to('index/'.$dato->id,$dato->name)!!}</td>
-                <td>{{$dato->email}}</td>
+                <td>{!!link_to_route('todowebsie.hijo.show',$hijo->id,$hijo->name)!!}</td>
+                <td>{{$hijo->apellido}}</td>
+                <td>{{$hijo->user_id}}</td>
                 <td>
-                    {!!Form::button(link_to_route('todowebsie.index.edit','editar',$dato->id))!!}
+                    {!!Form::button(link_to_route('todowebsie.hijo.edit','editar',$hijo->id))!!}
                     &#5210;
-                    {!!Form::open(['url' => 'index/'.$dato->id, 'method' => 'DELETE'])!!}
+                    {!!Form::open(['url' => 'hijo/'.$hijo->id, 'method' => 'DELETE'])!!}
                     {!!Form::submit('Eliminar')!!}
                     {{Form::close()}}
-                </td>   
+                </td>    
             </tr>            
         </tbody>
     @endforeach
 </table>
-<td>{!!Form::button(link_to_route('todowebsie.index.create','Add User'))!!}</td>
-{{$datos->links()}}
+<td>{!!Form::button(link_to_route('todowebsie.hijo.create','Add User'))!!}</td>
+{{$hijos->links()}}
 composer require laravelcollective/html "5.8.*" -> "laravelcollective"
 </div>
 </div>

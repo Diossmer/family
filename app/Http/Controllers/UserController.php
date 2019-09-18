@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
-use App\Padre;
-use App\Madre;
 
 class UserController extends Controller
 {
@@ -19,9 +17,8 @@ class UserController extends Controller
     {
         //
         $datos = User::paginate(5);
-        return view("admin.home", compact('datos'));
+        return view("padre.home", compact('datos'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -30,9 +27,8 @@ class UserController extends Controller
     public function create(request $request)
     {
         //
-        return view('admin.create');
+        return view('padre.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -47,9 +43,8 @@ class UserController extends Controller
         $usuario->email = $request->email;
         $usuario->password = bcrypt($request->password);
         $usuario->save();
-        return redirect('index');
+        return redirect('padre');
     }
-
     /**
      * Display the specified resource.
      *
@@ -60,9 +55,8 @@ class UserController extends Controller
     {
         //
         $ver = User::find($id);
-        return view('admin.show', compact('ver'));
+        return view('padre.show', compact('ver'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -73,9 +67,8 @@ class UserController extends Controller
     {
         //
         $edit = User::find($id);
-        return view('admin.edit', compact('edit'));
+        return view('padre.edit', compact('edit'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -91,9 +84,8 @@ class UserController extends Controller
         $update->email = $request->email;
         $update->password = bcrypt($request->password);
         $update->save();
-        return redirect('index/');
+        return redirect('padre/');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -105,6 +97,6 @@ class UserController extends Controller
         //
         $delete = User::findOrFail($id);
         $delete->delete();
-        return redirect('index');
+        return redirect('padre');
     }
 }

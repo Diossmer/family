@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Padre;
+use App\Hijo;
 use App\User;
-use App\Madre;
+use Illuminate\Http\Request;
 
-class PadreController extends Controller
+class HijoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class PadreController extends Controller
     public function index()
     {
         //
-        $hijos = Padre::find(1)->user;
-        return view('admin.padres.home', compact('hijos'));
+        $hijos = Hijo::paginate(5);
+        return view('padre.hijo.home', compact('hijos'));
     }
 
     /**
@@ -45,10 +44,10 @@ class PadreController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Padre  $padre
+     * @param  \App\Hijo  $hijo
      * @return \Illuminate\Http\Response
      */
-    public function show(Padre $padre)
+    public function show(Hijo $hijo)
     {
         //
     }
@@ -56,10 +55,10 @@ class PadreController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Padre  $padre
+     * @param  \App\Hijo  $hijo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Padre $padre)
+    public function edit(Hijo $hijo)
     {
         //
     }
@@ -68,10 +67,10 @@ class PadreController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Padre  $padre
+     * @param  \App\Hijo  $hijo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Padre $padre)
+    public function update(Request $request, Hijo $hijo)
     {
         //
     }
@@ -79,10 +78,10 @@ class PadreController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Padre  $padre
+     * @param  \App\Hijo  $hijo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Padre $padre)
+    public function destroy(Hijo $hijo)
     {
         //
     }

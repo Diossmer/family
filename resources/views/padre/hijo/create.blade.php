@@ -16,7 +16,7 @@
 <div class="card">
 <div class="card-header">{{"Integrant"}}</div>
 <div class="card-body">
-{!!Form::open(['url' => 'index/', 'method' => 'Post'])!!}
+{!!Form::open(['url' => 'hijo/', 'method' => 'Post'])!!}
 {{csrf_field()}}
 {{Form::label('nombre', 'Nombre:')}}
 {!!Form::text('user',null,['placeholder' => 'User'])!!}<br>
@@ -27,7 +27,7 @@
 {{--Form::checkbox('name', 'valor', true)--}}
 {!!Form::submit('Enviar')!!}
 {!!Form::reset('Borrar')!!}
-{!!Form::button(link_to_route('todowebsie.index.index','Regresar'))!!}
+{!!Form::button(link_to_route('todowebsie.hijo.index','Regresar'))!!}
 {!! Form::close() !!}
 </div>
 </div>

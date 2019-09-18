@@ -25,7 +25,7 @@
 <p>Su creacion de archivo es: <b>{{$ver->created_at}}</b></p>
 <p>Su ultima actualizacion es: <b>{{$ver->updated_at}}</b></p>
 <hr>
-{!!Form::button(link_to('index','Regresar'))!!}
+{!!Form::button(link_to('padre','Regresar'))!!}
 </div>
 </div>
 </div>

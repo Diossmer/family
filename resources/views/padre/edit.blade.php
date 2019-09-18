@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'create')
+@section('title', 'edit')
 @section('navbar')
 @include('include.navbar')
 @endsection
@@ -16,18 +16,18 @@
 <div class="card">
 <div class="card-header">{{"Integrant"}}</div>
 <div class="card-body">
-{!!Form::open(['url' => 'index/', 'method' => 'Post'])!!}
+{!!Form::open(['url' => 'padre/'.$edit->id, 'method' => 'put'])!!}
 {{csrf_field()}}
 {{Form::label('nombre', 'Nombre:')}}
-{!!Form::text('user',null,['placeholder' => 'User'])!!}<br>
+{!!Form::text('user',$edit->name,['placeholder' => 'User'])!!}<br>
 {{Form::label('correo', 'Correo:')}}
-{!!Form::email('email',null,['placeholder' => 'Email'])!!}<br>
+{!!Form::email('email',$edit->email,['placeholder' => 'Email'])!!}<br>
 {{Form::label('contraseña', 'Contraseña:')}}
 {!!Form::password('password')!!}<br>
 {{--Form::checkbox('name', 'valor', true)--}}
 {!!Form::submit('Enviar')!!}
 {!!Form::reset('Borrar')!!}
-{!!Form::button(link_to_route('todowebsie.index.index','Regresar'))!!}
+{!!Form::button(link_to_route('todowebsie.padre.index','Regresar'))!!}
 {!! Form::close() !!}
 </div>
 </div>
