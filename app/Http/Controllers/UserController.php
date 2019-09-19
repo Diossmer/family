@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Hijo;
 
 class UserController extends Controller
 {
@@ -27,7 +28,7 @@ class UserController extends Controller
     public function create(request $request)
     {
         //
-        return view('padre.create');
+        return view('padre.create', compact('valor', 'nombre'));
     }
     /**
      * Store a newly created resource in storage.
@@ -43,6 +44,11 @@ class UserController extends Controller
         $usuario->email = $request->email;
         $usuario->password = bcrypt($request->password);
         $usuario->save();
+        /*$register = new Hijo;
+        $register->name = $request->user;
+        $register->apellido = $request->apellido;
+        $register->user_id = $request->user_id;
+        $register->save();*/
         return redirect('padre');
     }
     /**

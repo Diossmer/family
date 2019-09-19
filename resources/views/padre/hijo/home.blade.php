@@ -30,7 +30,7 @@
             <tr>
                 <td>{!!link_to_route('todowebsie.hijo.show',$hijo->name,$hijo->id)!!}</td>
                 <td>{{$hijo->apellido}}</td>
-                <td>{{$hijo->User->name}}</td>
+                <td>{{$hijo->user->name}}</td>
                 <td>
                     {!!Form::button(link_to_route('todowebsie.hijo.edit','editar',$hijo->id))!!}
                     &#5210;
@@ -42,7 +42,8 @@
         </tbody>
     @endforeach
 </table>
-<td>{!!Form::button(link_to_route('todowebsie.hijo.create','Add User'))!!}</td>
+{!!Form::button(link_to_route('todowebsie.hijo.create','Add User'))!!}
+{!!Form::button(link_to_route('todowebsie.padre.index','Go padre'))!!}
 {{$hijos->links()}}
 composer require laravelcollective/html "5.8.*" -> "laravelcollective"
 </div>

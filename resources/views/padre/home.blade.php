@@ -40,7 +40,8 @@
         </tbody>
     @endforeach
 </table>
-<td>{!!Form::button(link_to_route('todowebsie.padre.create','Add User'))!!}</td>
+{!!Form::button(link_to_route('todowebsie.padre.create','Add User'))!!}
+{!!Form::button(link_to_route('todowebsie.hijo.store','Go Hijo'))!!}
 {{$datos->links()}}
 composer require laravelcollective/html "5.8.*" -> "laravelcollective"
 </div>

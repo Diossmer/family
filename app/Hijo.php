@@ -11,7 +11,7 @@ class Hijo extends Model
     protected $fillable = [
         'name', 'apellido', 'user_id',
     ];
-    public function user()
+    public function users()
     {
         return $this->belongsTo('App\User');
     }

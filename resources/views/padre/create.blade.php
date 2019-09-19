@@ -18,13 +18,19 @@
 <div class="card-body">
 {!!Form::open(['url' => 'padre/', 'method' => 'Post'])!!}
 {{csrf_field()}}
-{{Form::label('nombre', 'Nombre:')}}
+{{Form::label('nombre', 'Nombre del Padre:')}}
 {!!Form::text('user',null,['placeholder' => 'User'])!!}<br>
 {{Form::label('correo', 'Correo:')}}
 {!!Form::email('email',null,['placeholder' => 'Email'])!!}<br>
 {{Form::label('contraseña', 'Contraseña:')}}
 {!!Form::password('password')!!}<br>
-{{--Form::checkbox('name', 'valor', true)--}}
+{!!Form::open(['url' => 'hijo/', 'method' => 'Post'])!!}
+{{Form::label('nombre', 'Nombre del Hijo:')}}
+{!!Form::text('users',null,['placeholder' => 'Nombre'])!!}<br>
+{{Form::label('apellido', 'Apellido del Hijo:')}}
+{!!Form::text('apellido',null,['placeholder' => 'Apellido'])!!}<br>
+{{Form::label('padre', 'Padre:')}}
+{{-- {!!Form::select('user_id',[null], ['placeholder' => 'Select option']);!!}<br> --}}
 {!!Form::submit('Enviar')!!}
 {!!Form::reset('Borrar')!!}
 {!!Form::button(link_to_route('todowebsie.padre.index','Regresar'))!!}

@@ -18,7 +18,7 @@ class CreateHijosTable extends Migration
             $table->string('name');
             $table->string('apellido');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

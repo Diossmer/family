@@ -38,15 +38,16 @@ class HijoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($hijo, Request $request)
     {
-        //
-        $nuevo = Hijo::all();
+        $nuevo = new Hijo;
         $nuevo->name = $request->user;
         $nuevo->apellido = $request->apellido;
-        $nuevo->user_id = $request->user_id;
-        $nuevo->save();
-        return redirect("hijo");
+        $nuevo->hijo()->associates($id)->save();
+        return response()->json([
+            "hijo" => $hijo,
+            "message" => "CREADO CORRECTAMENTE.",
+        ], 200);
     }
 
     /**
