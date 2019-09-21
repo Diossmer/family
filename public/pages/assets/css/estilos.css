@@ -1,5 +1,16 @@
 body {
   text-align: center;
   margin: 22%;
-  background-color: cadetblue;
+  background-color: cadetblue !important;
+}
+tr{
+  text-align: center;
+}
+.navbar{
+  background-color: #ff7000;
+}
+form{
+  margin: 0% auto;
+  width: 60%;
+  border:5px ridge;
 }

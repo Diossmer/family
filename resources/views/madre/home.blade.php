@@ -16,26 +16,23 @@
 <div class="card">
 <div class="card-header">{{"Integrant"}}</div>
 <div class="card-body">
-<table border="2" width="100%">
+<table border="1">
     <thead>
         <tr>
             <th>Name</th>
-            <th>Lastname</th>
-            <th>Age</th>
-            <th>Color</th>
+            <th>Email</th>
             <th>Action</th>
         </tr>
     </thead>
-    @foreach ($families as $family)
+    @foreach ($datos as $dato)
         <tbody>
             <tr>
-                <td>{!!link_to('padre/'.$family->id,$family->name)!!}</td>
-                <td>{{$family->lastname}}</td>
-                <td>{{$family->age}}</td>
-                <td>{{$family->color}}</td>
+                <td>{!!link_to('padre/'.$dato->id,$dato->name)!!}</td>
+                <td>{{$dato->email}}</td>
                 <td>
-                    {!!Form::open(['url' => 'padre/'.$family->id, 'method' => 'DELETE'])!!}
-                    {!!Form::button(link_to_route('family.padre.edit','editar',$family->id))!!}
+                    {!!Form::button(link_to_route('todowebsie.padre.edit','editar',$dato->id))!!}
+                    &#5210;
+                    {!!Form::open(['url' => 'padre/'.$dato->id, 'method' => 'DELETE'])!!}
                     {!!Form::submit('Eliminar')!!}
                     {{Form::close()}}
                 </td>   
@@ -43,9 +40,9 @@
         </tbody>
     @endforeach
 </table>
-{!!Form::button(link_to_route('family.padre.create','Add User'))!!}
-{!!Form::button(link_to_route('family.hijo.store','Go Hijo'))!!}
-{{-- {{$families->links()}} --}}
+{!!Form::button(link_to_route('todowebsie.padre.create','Add User'))!!}
+{!!Form::button(link_to_route('todowebsie.hijo.store','Go Hijo'))!!}
+{{$datos->links()}}
 composer require laravelcollective/html "5.8.*" -> "laravelcollective"
 </div>
 </div>

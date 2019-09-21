@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Hijo;
+use App\Madre;
 use Illuminate\Http\Request;
 
-class HijoController extends Controller
+class MadreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class HijoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Hijo  $hijo
+     * @param  \App\Madre  $madre
      * @return \Illuminate\Http\Response
      */
-    public function show(Hijo $hijo)
+    public function show(Madre $madre)
     {
         //
     }
@@ -52,10 +52,10 @@ class HijoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Hijo  $hijo
+     * @param  \App\Madre  $madre
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hijo $hijo)
+    public function edit(Madre $madre)
     {
         //
     }
@@ -64,10 +64,10 @@ class HijoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Hijo  $hijo
+     * @param  \App\Madre  $madre
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hijo $hijo)
+    public function update(Request $request, Madre $madre)
     {
         //
     }
@@ -75,10 +75,10 @@ class HijoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Hijo  $hijo
+     * @param  \App\Madre  $madre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hijo $hijo)
+    public function destroy(Madre $madre)
     {
         //
     }

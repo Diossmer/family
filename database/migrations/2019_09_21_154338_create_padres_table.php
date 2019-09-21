@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHijosTable extends Migration
+class CreatePadresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateHijosTable extends Migration
      */
     public function up()
     {
-        Schema::create('hijos', function (Blueprint $table) {
+        Schema::create('padres', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('apellido');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->nullable();
+            $table->string('lastname');
+            $table->biginteger('age');
+            $table->string('color');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateHijosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hijos');
+        Schema::dropIfExists('padres');
     }
 }

@@ -11,8 +11,9 @@
 |
 */
 
-Route::name('todowebsie.')->group(function () {
+Route::name('family.')->group(function () {
     Route::view('/', 'welcome')->name('home');
-    Route::resource('padre', 'UserController')->parameters(['padre' => 'id']);
-    Route::resource('hijo', 'HijoController')->parameters(['hijo' => 'id']);
+    Route::resource('padre', 'PadreController')->parameters(['padres' => 'id']);
+    Route::resource('madre', 'MadreController');
+    Route::resource('hijo', 'HijoController');
 });
