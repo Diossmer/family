@@ -32,7 +32,10 @@ class HijoController extends Controller
     public function create()
     {
         //
-        return view('hijo.create');
+        $padre = Padre::find();
+        $families=Hijo::pluck($padre,'name');
+        
+        return view('hijo.create',compact('families','padre'));
     
     }
 
@@ -45,6 +48,11 @@ class HijoController extends Controller
     public function store(Request $request)
     {
         //
+        $hijo=new Hijo;
+        $hijo->name = $request->name;
+        $hijo->lastname = $request->lastname;
+
+        $hijo->save();
     }
 
     /**

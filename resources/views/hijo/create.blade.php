@@ -18,12 +18,14 @@
 <div class="card-body">
 {!!Form::open(['url' => 'hijo/', 'method' => 'Post'])!!}
 {{csrf_field()}}
-{{Form::label('nombre', 'Nombre:')}}
-{!!Form::text('user',null,['placeholder' => 'Nombre'])!!}<br>
-{{Form::label('apellido', 'Apellido:')}}
-{!!Form::text('apellido',null,['placeholder' => 'Apellido'])!!}<br>
-{{Form::label('padre', 'Padre:')}}
-{!!Form::select('user_id',[], ['placeholder' => 'Select option']);!!}<br>
+{{Form::label('nombre', 'Nombre del Hijo:')}}
+{!!Form::text('name',null,['placeholder' => 'Nombre'])!!}<br>
+{{Form::label('apellido', 'Apellido del Hijo:')}}
+{!!Form::text('lastname',null,['placeholder' => 'Apellido'])!!}<br>
+{{Form::label('padre', 'Padre del hijo:')}}
+{!!Form::select('padres_id',[$requiere['name'] = $hijo->padre->name], ['placeholder' => 'Select option']);!!}<br>
+{{Form::label('madre', 'Madre del hijo:')}}
+{!!Form::select('madres_id',[$requiere['name'] = $hijo->madre->name], ['placeholder' => 'Select option']);!!}<br>
 {!!Form::submit('Enviar')!!}
 {!!Form::reset('Borrar')!!}
 {!!Form::button(link_to_route('family.hijo.index','Regresar'))!!}

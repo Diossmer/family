@@ -12,7 +12,7 @@
 @section('content')
 <div class="container">
 <div class="row justify-content-center">
-<div class="col-md-8">
+<div class="col-md-10">
 <div class="card">
 <div class="card-header">{{"Integrant"}} Hijo</div>
 <div class="card-body">
@@ -31,11 +31,11 @@
             <tr>
                 <td>{!!link_to_route('family.hijo.show',$family->name,$family->id)!!}</td>
                 <td>{{$family->lastname}}</td>
-                <td>{{$family->padre->name}}</td>
-                <td>{{$family->madre->name}}</td>
+                <td>{{$family->padre->name." ".$family->padre->lastname}}</td>
+                <td>{{$family->madre->name." ".$family->padre->lastname}}</td>
                 <td>
                     {!!Form::open(['url' => 'hijo/'.$family->id, 'method' => 'DELETE'])!!}
-                    {!!Form::button(link_to_route('family.hijo.edit','editar',$family->id))!!}
+                    {!!Form::button(link_to_route('family.hijo.edit','Editar',$family->id))!!}
                     {!!Form::submit('Eliminar')!!}
                     {{Form::close()}}
                 </td>    
