@@ -44,6 +44,7 @@
     @endforeach
 </table>
 {!!Form::button(link_to_route('family.hijo.create','Add Son'))!!}
+{!!Form::button(link_to_route('family.madre.index','Go Mother'))!!}
 {!!Form::button(link_to_route('family.padre.index','Go Father'))!!}
 {{-- {{$families->links()}} --}}
 composer require laravelcollective/html "5.8.*" -> "laravelcollective"

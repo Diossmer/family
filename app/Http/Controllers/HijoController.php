@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Padre;
+use App\Madre;
 use App\Hijo;
+
 use Illuminate\Http\Request;
 
 class HijoController extends Controller
@@ -32,10 +35,9 @@ class HijoController extends Controller
     public function create()
     {
         //
-        $padre = Padre::find();
-        $families=Hijo::pluck($padre,'name');
-        
-        return view('hijo.create',compact('families','padre'));
+        $padre = Padre::pluck('name','id')->all();
+        $madre= Madre::pluck('name','id')->all();
+        return view('hijo.create',compact('padre','madre'));
     
     }
 
@@ -51,8 +53,10 @@ class HijoController extends Controller
         $hijo=new Hijo;
         $hijo->name = $request->name;
         $hijo->lastname = $request->lastname;
-
+        $hijo->padres_id = $request->padres_id;
+        $hijo->madres_id = $request->madres_id;
         $hijo->save();
+        return redirect('hijo');
     }
 
     /**
@@ -61,9 +65,11 @@ class HijoController extends Controller
      * @param  \App\Hijo  $hijo
      * @return \Illuminate\Http\Response
      */
-    public function show(Hijo $hijo)
+    public function show($hijo)
     {
         //
+        $hijo = Hijo::findOrFail($hijo);
+        return view('hijo.show',compact('hijo'));
     }
 
     /**
@@ -72,9 +78,13 @@ class HijoController extends Controller
      * @param  \App\Hijo  $hijo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hijo $hijo)
+    public function edit($hijo)
     {
         //
+        $hijo = Hijo::find($hijo);
+        $padre = Padre::pluck('name','id');
+        $madre = Madre::pluck('name','id');
+        return view('hijo.edit',compact('hijo','padre','madre'));
     }
 
     /**
@@ -84,9 +94,16 @@ class HijoController extends Controller
      * @param  \App\Hijo  $hijo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hijo $hijo)
+    public function update(Request $request, $hijo)
     {
         //
+        $hijo = Hijo::findOrFail($hijo);
+        $hijo->name = $request->name;
+        $hijo->lastname = $request->lastname;
+        $hijo->padres_id = $request->padres_id;
+        $hijo->madres_id = $request->madres_id;
+        $hijo->save();
+        return redirect('hijo');
     }
 
     /**
@@ -95,8 +112,10 @@ class HijoController extends Controller
      * @param  \App\Hijo  $hijo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hijo $hijo)
+    public function destroy($hijo)
     {
         //
+        Hijo::destroy($hijo);
+        return redirect('hijo');
     }
 }

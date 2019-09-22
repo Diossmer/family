@@ -12,33 +12,56 @@
 @section('content')
 <div class="container">
 <div class="row justify-content-center">
-<div class="col-md-8">
+<div class="col-md-10">
 <div class="card">
 <div class="card-header">{{"Integrant"}}</div>
 <div class="card-body">
-<h1>Usuario: {{$ver->name}}</h1>
-<p><b>{{$ver->users->name}}</b> Usted tiene una gran virtud por delante</p>
+<h1>Usuario: {{$hijo->name." ".$hijo->lastname}}</h1>
+<p>Usted tiene una gran virtud por delante</p>
 <hr>
-<p>Se enviara a su Correo: <b>{{$ver->apellido}}</b> un archivo de paz</p>
-<p>sin mas nada que decir nos encontremos en su proxima actualizacion de <b>{{env('APP_NAME', 'Laravel')}}</b></p>
-<p>Su contraseña esta encriptado: <b>{{$ver->users->password}}</b></p>
+<p>Se felicita por adquirir conocimiento puro en su tiempo.</p>
+<p>Le damos la bienvenida: <b>{{$hijo->name." ".$hijo->lastname}}</b></p>
 <table border="1" style="background-color:#ff7000">
-<tr>
-    <th><p>Hijo:</p></th>
-</tr>
-<tr>
-    <td><p>Su creacion de archivo es: <b>{{$ver->created_at}}</b></p></td>
-    <td><p>Su ultima actualizacion es: <b>{{$ver->updated_at}}</b></p></td>
-</tr>
-<tr>
-        <th><p>padre:</p></th>
-    </tr>
-    <tr>
-        <td><p>Su creacion de archivo es: <b>{{$ver->users->created_at}}</b></p></td>
-        <td><p>Su ultima actualizacion es: <b>{{$ver->users->updated_at}}</b></p></td>
-    </tr>
-
-</table>
+        <tr>
+            <td><h3>padre:</h3></td>
+        </tr>
+        <tr>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>Color</th>
+                <th>Ingreso</th>
+                <th>Actualizacion</th>
+        </tr>
+        <tr>
+            <td><p>Su nombre es: <b>{{$hijo->padre->name}}</b></p></td>
+            <td><p>Su apellido es: <b>{{$hijo->padre->lastname}}</b></p></td>
+            <td><p>Su edad es: <b>{{$hijo->padre->age}}</b></p></td>
+            <td><p>Su color es: <b>{{$hijo->padre->color}}</b></p></td>
+            <td><p>Su creacion de archivo es: <b>{{$hijo->padre->created_at}}</b></p></td>
+            <td><p>Su ultima actualizacion es: <b>{{$hijo->padre->updated_at}}</b></p></td>
+        </tr>
+        <tr>
+            <td><h3>Madre</h3></td>
+        </tr>
+        <tr>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>Color</th>
+                <th>Ingreso</th>
+                <th>Actualizacion</th>
+        </tr>
+        <tr>
+            <td><p>Su nombre es: <b>{{$hijo->madre->name}}</b></p></td>
+            <td><p>Su apellido es: <b>{{$hijo->madre->lastname}}</b></p></td>
+            <td><p>Su edad es: <b>{{$hijo->madre->age}}</b></p></td>
+            <td><p>Su color es: <b>{{$hijo->madre->color}}</b></p></td>
+            <td><p>Su creacion de archivo es: <b>{{$hijo->madre->created_at}}</b></p></td>
+            <td><p>Su ultima actualizacion es: <b>{{$hijo->madre->updated_at}}</b></p></td>
+        </tr>
+    </table>
+    <p>sin mas nada que decir nos encontremos en su proxima actualizacion de <b>{{env('APP_NAME', 'Laravel')}}</b></p>
 <hr>
 {!!Form::button(link_to('hijo','Regresar'))!!}
 </div>

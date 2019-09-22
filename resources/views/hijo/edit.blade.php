@@ -16,18 +16,20 @@
 <div class="card">
 <div class="card-header">{{"Integrant"}}</div>
 <div class="card-body">
-{!!Form::open(['url' => 'hijo/'.$edit->id, 'method' => 'put'])!!}
+{!!Form::open(['url' => 'hijo/'.$hijo->id, 'method' => 'PUT'])!!}
 {{csrf_field()}}
 {{Form::label('nombre', 'Nombre:')}}
-{!!Form::text('user',$edit->name,['placeholder' => 'Nombre'])!!}<br>
+{!!Form::text('name',$hijo->name,['placeholder' => 'Nombre'])!!}<br>
 {{Form::label('apellidos', 'Apellido:')}}
-{!!Form::text('apellido',$edit->apellido,['placeholder' => 'Apellido'])!!}<br>
+{!!Form::text('lastname',$hijo->lastname,['placeholder' => 'Apellido'])!!}<br>
 {{Form::label('padre', 'Padre:')}}
-{!!Form::select('user_id',[$padres,$edit->user_id], ['placeholder' => 'Select option']);!!}<br>
+{!!Form::select('padres_id',$padre,[$hijo->padre->name], ['placeholder' => 'Select option']);!!}<br>
+{{Form::label('madre', 'Madre:')}}
+{!!Form::select('madres_id',$madre,[$hijo->madre->name], ['placeholder' => 'Select option']);!!}<br>
 {{--Form::checkbox('name', 'valor', true)--}}
 {!!Form::submit('Enviar')!!}
 {!!Form::reset('Borrar')!!}
-{!!Form::button(link_to_route('todowebsie.hijo.index','Regresar'))!!}
+{!!Form::button(link_to_route('family.hijo.index','Regresar'))!!}
 {!! Form::close() !!}
 </div>
 </div>

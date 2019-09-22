@@ -81,7 +81,7 @@ class MadreController extends Controller
      * @param  \App\Madre  $madre
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Madre $madre)
+    public function update(Request $request, $madre)
     {
         //
         $madre = Madre::findOrFail($madre);

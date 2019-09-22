@@ -23,9 +23,9 @@
 {{Form::label('apellido', 'Apellido del Hijo:')}}
 {!!Form::text('lastname',null,['placeholder' => 'Apellido'])!!}<br>
 {{Form::label('padre', 'Padre del hijo:')}}
-{!!Form::select('padres_id',[$requiere['name'] = $hijo->padre->name], ['placeholder' => 'Select option']);!!}<br>
+{!!Form::select('padres_id',$padre,null, ['placeholder' => 'Select option']);!!}<br>
 {{Form::label('madre', 'Madre del hijo:')}}
-{!!Form::select('madres_id',[$requiere['name'] = $hijo->madre->name], ['placeholder' => 'Select option']);!!}<br>
+{!!Form::select('madres_id',$madre,null, ['placeholder' => 'Select option']);!!}<br>
 {!!Form::submit('Enviar')!!}
 {!!Form::reset('Borrar')!!}
 {!!Form::button(link_to_route('family.hijo.index','Regresar'))!!}
