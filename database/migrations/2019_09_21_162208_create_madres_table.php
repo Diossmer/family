@@ -17,7 +17,7 @@ class CreateMadresTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('lastname');
-            $table->integer('age');
+            $table->integer('age')->unsigned();
             $table->string('color');
             $table->timestamps();
         });

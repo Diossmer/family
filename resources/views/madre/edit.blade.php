@@ -16,19 +16,20 @@
 <div class="card">
 <div class="card-header">{{"Integrant"}}</div>
 <div class="card-body">
-{!!Form::open(['url' => 'padre/'.$edit->id, 'method' => 'put'])!!}
-{{csrf_field()}}
-{{Form::label('nombre', 'Nombre:')}}
-{!!Form::text('user',$edit->name,['placeholder' => 'User'])!!}<br>
-{{Form::label('correo', 'Correo:')}}
-{!!Form::email('email',$edit->email,['placeholder' => 'Email'])!!}<br>
-{{Form::label('contraseña', 'Contraseña:')}}
-{!!Form::password('password')!!}<br>
-{{--Form::checkbox('name', 'valor', true)--}}
-{!!Form::submit('Enviar')!!}
-{!!Form::reset('Borrar')!!}
-{!!Form::button(link_to_route('todowebsie.padre.index','Regresar'))!!}
-{!! Form::close() !!}
+    {!!Form::open(['url' => 'madre/'.$madre->id, 'method' => 'Put'])!!}
+    {{csrf_field()}}
+    {{Form::label('nombres', 'Nombre del madre:')}}
+    {!!Form::text('name',$madre->name,['placeholder' => 'Name'])!!}<br>
+    {{Form::label('apellidos', 'Apellido del madre:')}}
+    {!!Form::text('lastname',$madre->lastname,['placeholder' => 'Lastname'])!!}<br>
+    {{Form::label('edad', 'Edad del madre:')}}
+    {!!Form::text('age',$madre->age,['placeholder' => 'Age'])!!}<br>
+    {{Form::label('color', 'Color del madre:')}}
+    {!!Form::text('color',$madre->color,['placeholder' => 'Color','Required'])!!}<br>
+    {!!Form::submit('Enviar')!!}
+    {!!Form::reset('Borrar')!!}
+    {!!Form::button(link_to_route('family.madre.index','Regresar'))!!}
+    {!! Form::close() !!}
 </div>
 </div>
 </div>

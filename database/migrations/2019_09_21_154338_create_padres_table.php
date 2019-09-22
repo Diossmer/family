@@ -17,7 +17,7 @@ class CreatePadresTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('lastname');
-            $table->biginteger('age');
+            $table->biginteger('age')->unsigned();
             $table->string('color');
             $table->timestamps();
         });

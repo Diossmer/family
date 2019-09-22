@@ -14,7 +14,7 @@
 <div class="row justify-content-center">
 <div class="col-md-8">
 <div class="card">
-<div class="card-header">{{"Integrant"}}</div>
+<div class="card-header">{{"Integrant"}} Father</div>
 <div class="card-body">
 <table border="2" width="100%">
     <thead>
@@ -26,26 +26,29 @@
             <th>Action</th>
         </tr>
     </thead>
-    @foreach ($families as $family)
+    @if($padres)
+    @foreach ($padres as $padre)
         <tbody>
             <tr>
-                <td>{!!link_to('padre/'.$family->id,$family->name)!!}</td>
-                <td>{{$family->lastname}}</td>
-                <td>{{$family->age}}</td>
-                <td>{{$family->color}}</td>
+                <td>{!!link_to('padre/'.$padre->id,$padre->name)!!}</td>
+                <td>{{$padre->lastname}}</td>
+                <td>{{$padre->age}}</td>
+                <td>{{$padre->color}}</td>
                 <td>
-                    {!!Form::open(['url' => 'padre/'.$family->id, 'method' => 'DELETE'])!!}
-                    {!!Form::button(link_to_route('family.padre.edit','editar',$family->id))!!}
+                    {!!Form::open(['url' => 'padre/'.$padre->id, 'method' => 'DELETE'])!!}
+                    {!!Form::button(link_to_route('family.padre.edit','editar',$padre->id))!!}
                     {!!Form::submit('Eliminar')!!}
                     {{Form::close()}}
                 </td>   
             </tr>            
         </tbody>
     @endforeach
+    @endif
 </table>
-{!!Form::button(link_to_route('family.padre.create','Add User'))!!}
+{!!Form::button(link_to_route('family.padre.create','Add Father'))!!}
+{!!Form::button(link_to_route('family.madre.index','Go Mother'))!!}
 {!!Form::button(link_to_route('family.hijo.store','Go Hijo'))!!}
-{{-- {{$families->links()}} --}}
+{{-- {{padres->links()}} --}}
 composer require laravelcollective/html "5.8.*" -> "laravelcollective"
 </div>
 </div>

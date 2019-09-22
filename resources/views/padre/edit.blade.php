@@ -16,16 +16,16 @@
 <div class="card">
 <div class="card-header">{{"Integrant"}}</div>
 <div class="card-body">
-    {!!Form::open(['url' => 'padre/'.$family->id, 'method' => 'Put'])!!}
+    {!!Form::open(['url' => 'padre/'.$padre->id, 'method' => 'Put'])!!}
     {{csrf_field()}}
     {{Form::label('nombres', 'Nombre del Padre:')}}
-    {!!Form::text('name',$family->name,['placeholder' => 'Name'])!!}<br>
+    {!!Form::text('name',$padre->name,['placeholder' => 'Name'])!!}<br>
     {{Form::label('apellidos', 'Apellido del Padre:')}}
-    {!!Form::text('lastname',$family->lastname,['placeholder' => 'Lastname'])!!}<br>
+    {!!Form::text('lastname',$padre->lastname,['placeholder' => 'Lastname'])!!}<br>
     {{Form::label('edad', 'Edad del Padre:')}}
-    {!!Form::text('age',$family->age,['placeholder' => 'Age'])!!}<br>
+    {!!Form::text('age',$padre->age,['placeholder' => 'Age'])!!}<br>
     {{Form::label('color', 'Color del Padre:')}}
-    {!!Form::text('color',$family->color,['placeholder' => 'Color','Required'])!!}<br>
+    {!!Form::text('color',$padre->color,['placeholder' => 'Color','Required'])!!}<br>
     {!!Form::submit('Enviar')!!}
     {!!Form::reset('Borrar')!!}
     {!!Form::button(link_to_route('family.padre.index','Regresar'))!!}

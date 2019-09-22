@@ -15,8 +15,8 @@ class PadreController extends Controller
     public function index()
     {
         //
-        $families=Padre::all();
-        return view('padre.home',compact('families'));
+        $padres=Padre::all();
+        return view('padre.home',compact('padres'));
     }
 
     /**
@@ -39,12 +39,12 @@ class PadreController extends Controller
     public function store(Request $request)
     {
         //
-        $families = new Padre();
-        $families->name = $request->name;
-        $families->lastname = $request->lastname;
-        $families->age = $request->age;
-        $families->color = $request->color;
-        $families->save();
+        $padres = new Padre();
+        $padres->name = $request->name;
+        $padres->lastname = $request->lastname;
+        $padres->age = $request->age;
+        $padres->color = $request->color;
+        $padres->save();
         return redirect('padre');
     }
 
@@ -57,8 +57,8 @@ class PadreController extends Controller
     public function show($padre)
     {
         //
-        $families=Padre::find($padre);
-        return view('padre.show', compact('families'));
+        $padres=Padre::find($padre);
+        return view('padre.show', compact('padres'));
     }
 
     /**
@@ -70,8 +70,8 @@ class PadreController extends Controller
     public function edit($id)
     {
         //
-        $family = Padre::find($id);
-        return view('padre.edit', compact('family'));
+        $padre = Padre::find($id);
+        return view('padre.edit', compact('padre'));
     }
 
     /**
@@ -84,12 +84,12 @@ class PadreController extends Controller
     public function update(Request $request, $padre)
     {
         //
-        $family = Padre::findOrFail($padre);
-        $family->name = $request->name;
-        $family->lastname = $request->lastname;
-        $family->age = $request->age;
-        $family->color = $request->color;
-        $family->save();
+        $padre = Padre::findOrFail($padre);
+        $padre->name = $request->name;
+        $padre->lastname = $request->lastname;
+        $padre->age = $request->age;
+        $padre->color = $request->color;
+        $padre->save();
         return redirect('padre');
     }
 

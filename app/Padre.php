@@ -13,6 +13,6 @@ class Padre extends Model
     ];
     public function hijos()
     {
-        return $this->hasMany('App\Hijo');
+        return $this->hasMany('App\Padre');
     }
 }

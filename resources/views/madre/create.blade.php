@@ -16,24 +16,19 @@
 <div class="card">
 <div class="card-header">{{"Integrant"}}</div>
 <div class="card-body">
-{!!Form::open(['url' => 'padre/', 'method' => 'Post'])!!}
+{!!Form::open(['url' => 'madre/', 'method' => 'Post'])!!}
 {{csrf_field()}}
-{{Form::label('nombre', 'Nombre del Padre:')}}
-{!!Form::text('user',null,['placeholder' => 'User'])!!}<br>
-{{Form::label('correo', 'Correo:')}}
-{!!Form::email('email',null,['placeholder' => 'Email'])!!}<br>
-{{Form::label('contraseña', 'Contraseña:')}}
-{!!Form::password('password')!!}<br>
-{!!Form::open(['url' => 'hijo/', 'method' => 'Post'])!!}
-{{Form::label('nombre', 'Nombre del Hijo:')}}
-{!!Form::text('users',null,['placeholder' => 'Nombre'])!!}<br>
-{{Form::label('apellido', 'Apellido del Hijo:')}}
-{!!Form::text('apellido',null,['placeholder' => 'Apellido'])!!}<br>
-{{Form::label('padre', 'Padre:')}}
-{{-- {!!Form::select('user_id',[null], ['placeholder' => 'Select option']);!!}<br> --}}
+{{Form::label('nombres', 'Nombre del madre:')}}
+{!!Form::text('name',null,['placeholder' => 'Name'])!!}<br>
+{{Form::label('apellidos', 'Apellido del madre:')}}
+{!!Form::text('lastname',null,['placeholder' => 'Lastname'])!!}<br>
+{{Form::label('edad', 'Edad del madre:')}}
+{!!Form::text('age',null,['placeholder' => 'Age'])!!}<br>
+{{Form::label('color', 'Color del madre:')}}
+{!!Form::text('color',null,['placeholder' => 'Color','Required'])!!}<br>
 {!!Form::submit('Enviar')!!}
 {!!Form::reset('Borrar')!!}
-{!!Form::button(link_to_route('todowebsie.padre.index','Regresar'))!!}
+{!!Form::button(link_to_route('family.madre.index','Regresar'))!!}
 {!! Form::close() !!}
 </div>
 </div>

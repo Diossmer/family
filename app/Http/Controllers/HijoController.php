@@ -15,6 +15,13 @@ class HijoController extends Controller
     public function index()
     {
         //
+        // $families=Hijo::with('padre')->get();
+        // $valor = Padre::pluck($padre, 'lastName', 'firstName');
+        // $families=Hijo::get()->collect(['name','lastname','age','color']);
+        // $madre=Madre::with('padre')->pluck($families,'name','lastname');
+        
+        $families = Hijo::all();
+        return view('hijo.home',compact('families'));
     }
 
     /**
@@ -25,6 +32,8 @@ class HijoController extends Controller
     public function create()
     {
         //
+        return view('hijo.create');
+    
     }
 
     /**

@@ -26,7 +26,7 @@
 {!!Form::select('user_id',[], ['placeholder' => 'Select option']);!!}<br>
 {!!Form::submit('Enviar')!!}
 {!!Form::reset('Borrar')!!}
-{!!Form::button(link_to_route('todowebsie.hijo.index','Regresar'))!!}
+{!!Form::button(link_to_route('family.hijo.index','Regresar'))!!}
 {!! Form::close() !!}
 </div>
 </div>

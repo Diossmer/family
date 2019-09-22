@@ -15,6 +15,8 @@ class MadreController extends Controller
     public function index()
     {
         //
+        $madres=Madre::all();
+        return view('madre.home',compact('madres'));
     }
 
     /**
@@ -25,6 +27,7 @@ class MadreController extends Controller
     public function create()
     {
         //
+        return view('madre.create');
     }
 
     /**
@@ -36,6 +39,13 @@ class MadreController extends Controller
     public function store(Request $request)
     {
         //
+        $madres = new Madre();
+        $madres->name = $request->name;
+        $madres->lastname = $request->lastname;
+        $madres->age = $request->age;
+        $madres->color = $request->color;
+        $madres->save();
+        return redirect('madre');
     }
 
     /**
@@ -44,9 +54,11 @@ class MadreController extends Controller
      * @param  \App\Madre  $madre
      * @return \Illuminate\Http\Response
      */
-    public function show(Madre $madre)
+    public function show($madre)
     {
         //
+        $madres=Madre::find($madre);
+        return view('madre.show', compact('madres'));
     }
 
     /**
@@ -55,9 +67,11 @@ class MadreController extends Controller
      * @param  \App\Madre  $madre
      * @return \Illuminate\Http\Response
      */
-    public function edit(Madre $madre)
+    public function edit($id)
     {
         //
+        $madre = Madre::find($id);
+        return view('madre.edit', compact('madre'));
     }
 
     /**
@@ -70,6 +84,13 @@ class MadreController extends Controller
     public function update(Request $request, Madre $madre)
     {
         //
+        $madre = Madre::findOrFail($madre);
+        $madre->name = $request->name;
+        $madre->lastname = $request->lastname;
+        $madre->age = $request->age;
+        $madre->color = $request->color;
+        $madre->save();
+        return redirect('madre');
     }
 
     /**
@@ -78,8 +99,11 @@ class MadreController extends Controller
      * @param  \App\Madre  $madre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Madre $madre)
+    public function destroy($madre)
     {
         //
+        $madre = Madre::find($madre);
+        $madre->delete();
+        return redirect('madre');
     }
 }

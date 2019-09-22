@@ -11,8 +11,8 @@ class Madre extends Model
     protected $fillable=[
         'name','lastname','age','color',
     ];
-    public function madre()
+    public function hijos()
     {
-        return $this->belongsTo('App\Madre');
+        return $this->hasMany('App\Hijo');
     }
 }

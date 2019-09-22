@@ -13,6 +13,10 @@ class Hijo extends Model
     ];
     public function padre()
     {
-        return $this->belongsTo('App\Padre');
+        return $this->belongsTo('App\Padre', 'padres_id');
+    }
+    public function madre()
+    {
+        return $this->belongsTo('App\Madre', 'madres_id');
     }
 }
