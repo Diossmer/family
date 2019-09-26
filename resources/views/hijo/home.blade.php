@@ -32,7 +32,7 @@
                 <td>{!!link_to_route('family.hijo.show',$family->name,$family->id)!!}</td>
                 <td>{{$family->lastname}}</td>
                 <td>{{$family->padre->name." ".$family->padre->lastname}}</td>
-                <td>{{$family->madre->name." ".$family->padre->lastname}}</td>
+                <td>{{$family->madre->name." ".$family->madre->lastname}}</td>
                 <td>
                     {!!Form::open(['url' => 'hijo/'.$family->id, 'method' => 'DELETE'])!!}
                     {!!Form::button(link_to_route('family.hijo.edit','Editar',$family->id))!!}
